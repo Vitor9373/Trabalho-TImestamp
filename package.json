@@ -1,0 +1,24 @@
+{
+  "name": "trabalho-timestamp",
+  "version": "0.0.1",
+  "description": "Trabalho",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch server js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vitor9373/Trabalho-TImestamp.git"
+  },
+  "author": "Vitor Müller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vitor9373/Trabalho-TImestamp/issues"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "homepage": "https://github.com/Vitor9373/Trabalho-TImestamp#readme"
+  
+}
