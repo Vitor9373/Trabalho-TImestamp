@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const button = document.getElementById('converte'); 
     const unixResult = document.getElementById('unixResult'); 
     const utcResult = document.getElementById('utcResult');
+    const unixAtual = document.getElementById('unixAtual');
+    const utcAtual = document.getElementById('utcAtual');
   
     async function convertDate() {
         input.innerHTML = '';

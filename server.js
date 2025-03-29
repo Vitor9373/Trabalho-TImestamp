@@ -17,7 +17,7 @@ app.get('/api/:date?', (req, res) => {
         date = new Date;
     } 
     else if (!isNaN(inputDate)) {
-        date = new Date(parseInt(inputDate));
+        date = new Date(parseInt(inputDate) * 1000);
     } 
     else {
         date = new Date(inputDate);
@@ -28,7 +28,7 @@ app.get('/api/:date?', (req, res) => {
     }
 
     res.json({
-        unix: date.getTime(),
+        unix: Math.trunc(date.getTime() / 1000),
         utc: date.toUTCString()
     });
 });
