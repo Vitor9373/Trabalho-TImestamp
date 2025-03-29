@@ -14,7 +14,7 @@ app.get('/api/:date?', (req, res) => {
     let date;
 
     if (!inputDate) {
-        date = new Date(Date.now());
+        date = new Date;
     } 
     else if (!isNaN(inputDate)) {
         date = new Date(parseInt(inputDate));
