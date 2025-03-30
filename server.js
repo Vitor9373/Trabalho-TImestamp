@@ -33,6 +33,14 @@ app.get('/api/:date?', (req, res) => {
     });
 });
 
+app.get('/data-atual', (req, res) => {
+    const dataAtual = new Date();
+    res.json({
+        unix: Math.trunc((dataAtual.getTime()) / 1000),
+        utc: dataAtual.toUTCString(),
+    });
+});
+
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });

@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.error) {
                 unixResult.textContent = data.error;
                 utcResult.textContent = data.error;
-            } else {
+            } 
+            else {
                 unixResult.textContent = data.unix;
                 utcResult.textContent = data.utc;
             }
@@ -25,6 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
         catch (error) {
             unixResult.textContent = 'Erro';    
             utcResult.textContent = 'Erro';
+        }
+    }   
+
+    async function dataAtual() {
+        try {
+            const response = await fetch('/data-atual');
+            const data = await response.json();
+
+            unixAtual.textContent = data.unix;
+            utcAtual.textContent = data.utc;
+        } 
+        catch (error) {
+            unixAtual.textContent = 'Erro ao buscar data atual';
+            utcAtual.textContent = 'Erro ao buscar data atual';
         }
     }
 
@@ -35,4 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
             convertDate();
         }
     });
+
+    dataAtual();
+
+    setInterval(dataAtual, 1000);
+    
   })
