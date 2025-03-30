@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const userInput = input.value.trim();
 
         try {
-            const response = await fetch(`/api/${userInput}`);
+            const response = await fetch(`/api/${userInput}`)
             const data = await response.json();
 
             if (data.error) {

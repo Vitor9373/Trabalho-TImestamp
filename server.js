@@ -32,7 +32,7 @@ app.get('/api/:date?', (req, res) => {
         utc: date.toUTCString()
     });
 });
-
+    
 app.get('/data-atual', (req, res) => {
     const dataAtual = new Date();
     res.json({
