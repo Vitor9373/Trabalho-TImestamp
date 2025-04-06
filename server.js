@@ -27,7 +27,7 @@ app.get('/api/:date?', (req, res) => {
     if (isNaN(date.getTime())) {
         return res.json({ error: "Invalid Date" });
     }
-
+    
     const dataAtualizada = new Date(date.getTime() + inputFuso * 60 * 60 * 1000);
 
     res.json({
@@ -43,6 +43,45 @@ app.get('/data-atual', (req, res) => {
         utc: dataAtual.toUTCString(),
     });
 });
+
+app.get('/api/diff/:date1/:date2', (req, res) => {
+    const date1Input = req.params.date1;
+    const date2Input = req.params.date2;
+    let date1;
+    let date2;
+
+    if (!isNaN(date1Input)) {
+        date1 = new Date(parseInt(date1Input) * 1000);
+    } 
+    else {
+        date1 = new Date(date1Input);
+    }
+
+    if (!isNaN(date2Input)) {
+        date2 = new Date(parseInt(date2Input) * 1000);
+    } 
+    else {
+        date2 = new Date(date2Input);
+    }
+
+    if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
+        return res.json({ error: "Invalid Date" });
+    }
+
+    const difEmMs = Math.abs(date2.getTime() - date1.getTime());
+    const difEmDias = Math.floor(difEmMs / (1000 * 60 * 60 * 24));
+    const difEmHoras = Math.floor((difEmMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const difEmMin = Math.floor((difEmMs % (1000 * 60 * 60)) / (1000 * 60));
+    const difEmSeg = Math.floor((difEmMs % (1000 * 60)) / 1000);
+
+    res.json({
+        dias: difEmDias,
+        horas: difEmHoras,
+        minutos: difEmMin,
+        segundos: difEmSeg
+    })
+
+})
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
