@@ -5,13 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const utcResult = document.getElementById('utcResult');
     const unixAtual = document.getElementById('unixAtual');
     const utcAtual = document.getElementById('utcAtual');
+    const fuso = document.getElementById('fuso');
   
     async function convertDate() {
-        input.innerHTML = '';
+        unixResult.textContent = '';
+        utcResult.textContent = '';
         const userInput = input.value.trim();
+        const userFuso = fuso.value.trim();
 
         try {
-            const response = await fetch(`/api/${userInput}`)
+            let url = `/api/${userInput}`;
+            if (userFuso) {
+                url += `?offset=${userFuso}`;
+            }
+
+            const response = await fetch(url)
             const data = await response.json();
 
             if (data.error) {
@@ -46,6 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', convertDate);
 
     input.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            convertDate();
+        }
+    });
+
+    fuso.addEventListener('keyup', (event) => {
         if (event.key === 'Enter') {
             convertDate();
         }

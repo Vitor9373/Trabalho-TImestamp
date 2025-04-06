@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/:date?', (req, res) => {
     const inputDate = req.params.date;
+    const inputFuso = parseInt(req.query.offset) || 0;
     let date;
 
     if (!inputDate) {
@@ -27,9 +28,11 @@ app.get('/api/:date?', (req, res) => {
         return res.json({ error: "Invalid Date" });
     }
 
+    const dataAtualizada = new Date(date.getTime() + inputFuso * 60 * 60 * 1000);
+
     res.json({
-        unix: Math.trunc(date.getTime() / 1000),
-        utc: date.toUTCString()
+        unix: Math.trunc(dataAtualizada.getTime() / 1000),
+        utc: dataAtualizada.toUTCString()
     });
 });
     

@@ -1,11 +1,9 @@
-/* Reset básico para remover margens e preenchimentos padrão */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilo do corpo da página */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -18,26 +16,22 @@ body {
     padding: 20px;
 }
 
-/* Estilo do título principal */
 h1 {
     font-size: 2.5rem;
     color: #2c3e50;
     margin-bottom: 20px;
 }
 
-/* Estilo dos parágrafos */
 p {
     font-size: 1.2rem;
     margin: 10px 0;
 }
 
-/* Estilo dos spans dentro dos parágrafos */
 p span {
     font-weight: bold;
     color: #e74c3c;
 }
 
-/* Estilo do subtítulo */
 h2 {
     font-size: 2rem;
     color: #34495e;
@@ -45,7 +39,11 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Estilo do campo de entrada */
+label{
+    font-size: 1.1rem;
+    color: #34495e;
+}
+
 input[type="text"] {
     width: 100%;
     max-width: 300px;
@@ -56,7 +54,6 @@ input[type="text"] {
     margin-bottom: 20px;
 }
 
-/* Estilo do botão */
 button {
     padding: 10px 20px;
     font-size: 1rem;
@@ -68,12 +65,10 @@ button {
     transition: background-color 0.3s ease;
 }
 
-/* Efeito hover no botão */
 button:hover {
     background-color: #2980b9;
 }
 
-/* Estilo dos resultados */
 #unixResult, #utcResult {
     font-weight: bold;
     color: #27ae60;
