@@ -8,8 +8,8 @@ com o trabalho.
 
 Antes de começar, certifique-se de ter os seguintes itens instalados no seu computador:
 
-- [Node.js](versão 14 ou superior)
-- [npm](gerenciador de pacotes do Node.js)
+- Node.js(versão 14 ou superior)
+- npm(gerenciador de pacotes do Node.js)
 
 ## **Passo a passo para executar o projeto**
 
