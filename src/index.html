@@ -8,24 +8,31 @@
     <script src="/script.js"></script>
 </head>
 <body>
-    <h1>Data atual</h1>
-    <p>Unix:<span id='unixAtual'></span></p>
-    <p>UTC:<span id='utcAtual'></span></p>
-
-    <h2>Conversor</h2>
-    <input id='valorDig' type="text" placeholder="Digite uma data (UTC ou Unix)"></input>
-    <label for="fuso">Fuso-horário</label>
-    <input type="text" id="fuso" placeholder="Número de -12 a +12(opcional)"></input>
-    <button id="converte">Converter</button>
-    <p>Unix:<span id='unixResult'></span></p>
-    <p>UTC:<span id='utcResult'></span></p>
-
-    <h2>Diferença entre datas</h2>
-    <div id="diferença">
-        <input type="text" id="data1"></input>
-        <input type="text" id="data2"></input>
+    <div id='atualContainer'>
+        <h1>Data atual</h1>
+        <p>Unix:<span id='unixAtual'></span></p>
+        <p>UTC:<span id='utcAtual'></span></p>
     </div>
-    <button id="diferenca">Calcular diferença</button>
-    <p><span id="difResult"></span></p>
+
+    <div id="calculos">
+        <div id="conversor">
+            <h2>Conversor</h2>
+            <input id='valorDig' type="text" placeholder="Digite uma data (UTC ou Unix)"></input>
+            <input type="text" id="fuso" placeholder="Fuso horário (-12 a +12)" title="Informe um fuso horário global (ex: -3)"></input>
+            <button id="converte">Converter</button>
+            <p><span id='unixResult'></span></p>
+            <p><span id='utcResult'></span></p>
+        </div>
+
+        <div id="diferencaDatas">
+            <h2>Diferença entre datas</h2>
+            <div id="diferença">
+                <input type="text" id="data1" placeholder="Digite uma data"></input>
+                <input type="text" id="data2" placeholder="Digite outra data"></input>
+            </div>
+            <button id="diferenca">Calcular diferença</button>
+            <p><span id="difResult"></span></p>
+        </div>
+    </div>
 </body>
 </html>

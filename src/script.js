@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 utcResult.textContent = data.error;
             } 
             else {
-                unixResult.textContent = data.unix;
-                utcResult.textContent = data.utc;
+                unixResult.textContent = `Unix: ${data.unix}`;
+                utcResult.textContent = `UTC: ${data.utc}`;
             }
         } 
         catch (error) {
