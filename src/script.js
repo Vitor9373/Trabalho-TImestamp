@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (data.error) {
                 unixResult.textContent = data.error;
-                utcResult.textContent = data.error;
             } 
             else {
                 unixResult.textContent = `Unix: ${data.unix}`;

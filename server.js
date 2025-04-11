@@ -27,6 +27,10 @@ app.get('/api/:date?', (req, res) => {
     if (isNaN(date.getTime())) {
         return res.json({ error: "Invalid Date" });
     }
+
+    if (inputFuso > 12 || inputFuso < -12){
+        return res.json({ error: "Fuso inválido" });
+    }
     
     const dataAtualizada = new Date(date.getTime() + inputFuso * 60 * 60 * 1000);
 
